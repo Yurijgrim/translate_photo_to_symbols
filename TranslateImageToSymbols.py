@@ -138,14 +138,20 @@ if __name__ == '__main__':
 	t = Transform()
 	from time import sleep
 
-	nf = input('NAME FILE PNG or JPG or GIF:   ')
-	w = int(input('HIS WIDTH :   '))
+	nf = input('NAME FILE PNG/JPG/JPEG/GIF:   ')
+	
+	im = Image.open(nf)
+	w, height = im.size
+	resized_image = im.resize((150, 70))
+	resized_image.save(nf)
 
+	im = Image.open(nf)
+	w, height = im.size
 
 	t.create_console_invert(nf, w)
-	sleep(5)
+	sleep(1)
 	t.create_console(nf, w)
-	sleep(10)
+	sleep(1)
 	t.create_console_color(nf, w)
 
 
@@ -173,7 +179,6 @@ if __name__ == '__main__':
 # t.animation_console(list_img, fps=0.5, loop_count=0, width=200)
 #
 
-input()
 input('EXIT ....')
-
+input('TRy againg ....')
 
