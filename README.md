@@ -34,8 +34,9 @@ t = Transform()
 t.animation_console(list_imgage, fps=0.5, loop_count=0, width=200)
 ```
 ***
-> Но необходимо знать что изображения должны быть одинаковые по ширине в пикселях.
+> Demo screen
 ***
 
 ![](/tr.png)
+![](demo.png)
  ***

@@ -143,6 +143,7 @@ if __name__ == '__main__':
 	im = Image.open(nf)
 	w, height = im.size
 	resized_image = im.resize((150, 70))
+	nf = "copy_"+nf
 	resized_image.save(nf)
 
 	im = Image.open(nf)
