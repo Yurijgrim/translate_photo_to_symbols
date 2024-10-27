@@ -3,9 +3,9 @@
 Конвертирование изображения в символы
 
 > Video
-```
+
 https://www.youtube.com/watch?v=YGH_SiopuR4
-```
+
 
 > Install 
 ```
