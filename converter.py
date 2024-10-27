@@ -2,6 +2,8 @@
 from PIL import Image
 from os import system
 from time import sleep
+from datetime import datetime
+import sys
 
 class Transform():
 	def __init__(self):
@@ -31,8 +33,8 @@ class Transform():
 
 	# symbol_0 = '#', symbol_1 = '.'
 	def create_console_color(self, image = None, width = 200,
-						 symbol_0 = " ", symbol_1 = ' ',
-						 symbol_2 = '.', symbol_3 = 'o', symbol_4 = '#'):
+						 symbol_0 = " ", symbol_1 = '.',
+						 symbol_2 = '-', symbol_3 = 'x', symbol_4 = '#'):
 		line = ''
 		count = 0
 		self.line = width
@@ -51,14 +53,14 @@ class Transform():
 			count += 1
 			if count == self.line:
 				count = 0
-
 				line += '\n'
-		print(line)
+		# print(line)
+		return line
 
 
 	def create_console_invert(self, image = None, width = 200,
-						 symbol_0 = "#", symbol_1 = 'o',
-						 symbol_2 = '.', symbol_3 = ' ', symbol_4 = ' '):
+						 symbol_0 = "X", symbol_1 = 'O',
+						 symbol_2 = 'G', symbol_3 = '-', symbol_4 = '_'):
 		line = ''
 		count = 0
 		self.line = width
@@ -79,7 +81,8 @@ class Transform():
 				count = 0
 
 				line += '\n'
-		print(line)
+		# print(line)
+		return line
 
 
 	def write_array(self, image):
@@ -133,13 +136,10 @@ class Transform():
 					if count == loop_count:
 						return 0
 
-if __name__ == '__main__':
-
+def test():
 	t = Transform()
 	from time import sleep
-
 	nf = input('NAME FILE PNG/JPG/JPEG/GIF:   ')
-	
 	im = Image.open(nf)
 	w, height = im.size
 	resized_image = im.resize((150, 70))
@@ -155,31 +155,46 @@ if __name__ == '__main__':
 	sleep(1)
 	t.create_console_color(nf, w)
 
+	# t.create_console('test00.png', width=1200)
+	# t.create_console_color('test00.png', width=1200)
+	# # sleep(10)
+	# t.create_console('test3.png', width=1080)
+	# t.create_console_color('test3.png', width=1080)
+	# # sleep(10)
+	# t.create_console('test4.png', width=1200)
+	# t.create_console_color('test4.png', width=1200)
+	# # sleep(10)
+	# t.create_console('test5.png', width=900)
+	# t.create_console_color('test5.png', width=900)
+	# # sleep(10)
 
-# t.create_console('test00.png', width=1200)
-# t.create_console_color('test00.png', width=1200)
-# # sleep(10)
-# t.create_console('test3.png', width=1080)
-# t.create_console_color('test3.png', width=1080)
-# # sleep(10)
-# t.create_console('test4.png', width=1200)
-# t.create_console_color('test4.png', width=1200)
-# # sleep(10)
-# t.create_console('test5.png', width=900)
-# t.create_console_color('test5.png', width=900)
-# # sleep(10)
+	# name_file = input('Name file Image:  ')
+	# size_width = int(input('width image:  '))
+	# t.create_console(image=name_file, width=size_width, symbol_0='.',symbol_1='0')
 
+	# list_img = ['im1.png','im2.png','im3.png','im4.png', 'im5.png']
+	# t = Transform()
+	# t.animation_console(list_img, fps=0.5, loop_count=0, width=200)
+	input('EXIT ....')
+	input('Try againg ....')
 
-#
-# name_file = input('Name file Image:  ')
-# size_width = int(input('width image:  '))
-# t.create_console(image=name_file, width=size_width, symbol_0='.',symbol_1='0')
+def main():
+	params = sys.argv
+	isrun = False
+	if len(params) > 0:
+		isrun = True
+	if isrun:
+		t = Transform()
+		nf = params[1]
+		ex = params[1].split(".")[-1]
+		im = Image.open(nf)
+		w, height = im.size
+		resized_image = im.resize((150, 80))
+		nf = "copy_temp."+ex
+		resized_image.save(nf)
+		size_width = 150
+		data = t.create_console_color(image=nf, width=size_width)
+		with open("data.data.data", "w") as file:
+			file.write(data)
 
-# list_img = ['im1.png','im2.png','im3.png','im4.png', 'im5.png']
-# t = Transform()
-# t.animation_console(list_img, fps=0.5, loop_count=0, width=200)
-#
-
-input('EXIT ....')
-input('TRy againg ....')
-
+main()
