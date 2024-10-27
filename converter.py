@@ -189,10 +189,10 @@ def main():
 		ex = params[1].split(".")[-1]
 		im = Image.open(nf)
 		w, height = im.size
-		resized_image = im.resize((150, 80))
+		resized_image = im.resize((600, 400))
 		nf = "copy_temp."+ex
 		resized_image.save(nf)
-		size_width = 150
+		size_width = 600
 		data = t.create_console_color(image=nf, width=size_width)
 		with open("data.data.data", "w") as file:
 			file.write(data)
