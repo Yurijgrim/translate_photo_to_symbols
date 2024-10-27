@@ -2,6 +2,11 @@
 
 Конвертирование изображения в символы
 
+> Video
+```
+https://www.youtube.com/watch?v=YGH_SiopuR4
+```
+
 > Install 
 ```
 git clone https://github.com/YuranIgnatenko/translate_photo_to_symbols.git
